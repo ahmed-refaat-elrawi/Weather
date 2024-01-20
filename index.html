@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="styles/all.css" />
+    <link rel="stylesheet" href="styles/style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header class="header">
+        <a href="#">
+          <div class="logo">
+            <div class="logo__img">
+              <img
+                class="logo__pic"
+                src="images/logo.png"
+                alt="logo of weather website"
+              />
+            </div>
+            <div class="logo__content">
+              <h1 class="logo__heading">Weather</h1>
+              <p class="logo__span">tagline goes here</p>
+            </div>
+          </div>
+        </a>
+        <div class="links">
+          <a href="" class="link">Home</a>
+          <a href="" class="link">News</a>
+          <a href="" class="link">Live cameras</a>
+          <a href="" class="link">Photos</a>
+          <a href="" class="link">Contact</a>
+        </div>
+      </header>
+      <section class="weather">
+        <article class="input">
+          <input
+            type="text"
+            class="search"
+            id="searchInput"
+            placeholder="Find your location..."
+          />
+          <button class="button" id="findButton">Find</button>
+        </article>
+        <article class="weather__forecast">
+          <div class="today day">
+            <div class="day__header">
+              <h3 class="h3__heading" id="currentWeekDay">Wednesday</h3>
+              <h3 class="h3__heading" id="currentMonthDay">10January</h3>
+            </div>
+            <div class="day__content">
+              <h2 class="weather__location" id="weatherLocation">London</h2>
+              <div class="temperature">
+                <p class="temperature__content" id="currentTemperature">13°C</p>
+                <img
+                  id="currentIcon"
+                  class="temperature__img"
+                  src="images/176.png"
+                  alt="temperature icon"
+                />
+              </div>
+              <h4 class="expectations" id="currentCondition">Mist</h4>
+              <div class="status">
+                <div class="status__content">
+                  <img src="images/icon-umberella.png" alt="umbrella" />
+                  <p class="h3__heading" id="humidity">20%</p>
+                </div>
+                <div class="status__content">
+                  <img src="images/icon-wind.png" alt="wind" />
+                  <p class="h3__heading" id="windSpeed">20%</p>
+                </div>
+                <div class="status__content">
+                  <img src="images/icon-compass.png" alt="compass" />
+                  <p class="h3__heading" id="windDirection">20%</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="tomorrow day">
+            <div class="day__header">
+              <h3 class="h3__heading" id="tomorrowDay">Thursday</h3>
+            </div>
+            <div class="day__content">
+              <img id="tomorrowIcon" src="images/113.png" alt="cloud" />
+              <div class="temperatures">
+                <h2 id="tomorrowMaxTemp" class="max-temperature">17.7°C</h2>
+                <h3 id="tomorrowMinTemp" class="h3__heading">11.7°C</h3>
+              </div>
+              <h4 id="tomorrowCondition" class="expectations">Cloudy</h4>
+            </div>
+          </div>
+          <div class="aftertomorrow day">
+            <div class="day__header">
+              <h3 class="h3__heading" id="afterTomorrowDay">Friday</h3>
+            </div>
+            <div class="day__content">
+              <img id="afterTomorrowIcon" src="images/113.png" alt="cloud" />
+              <div class="temperatures">
+                <h2 id="afterTomorrowMaxTemp" class="max-temperature">
+                  17.7°C
+                </h2>
+                <h3 id="afterTomorrowMinTemp" class="h3__heading">11.7°C</h3>
+              </div>
+              <h4 class="expectations" id="afterTomorrowCondition">Cloudy</h4>
+            </div>
+          </div>
+        </article>
+      </section>
+      <section class="social">
+        <div class="social__container">
+          <div class="social__message input">
+            <input
+              type="text"
+              class="search"
+              placeholder="Enter your email to subscribe..."
+            />
+            <button class="button social__button">subscribe</button>
+          </div>
+          <div class="social__icons">
+            <a class="social__icon" href="#"
+              ><i class="fa-brands fa-facebook-f"></i
+            ></a>
+            <a class="social__icon" href="#"
+              ><i class="fa-brands fa-twitter"></i
+            ></a>
+            <a class="social__icon" href="#"
+              ><i class="fa-brands fa-google"></i
+            ></a>
+            <a class="social__icon" href="#"
+              ><i class="fa-brands fa-twitch"></i
+            ></a>
+          </div>
+        </div>
+        <footer class="footer">
+          Copyright 2014 Company name. Designed by Themezy. All rights reserved
+        </footer>
+      </section>
+    </div>
+    <script src="js/main.js"></script>
+  </body>
+</html>

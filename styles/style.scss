@@ -1,0 +1,403 @@
+@import "mixins.scss";
+
+:root {
+  --background-color-dark: #1e202b;
+  --background-color-light: #262936;
+  --color-blue: #227fd8;
+  --color-blue-light: #009ad8;
+  --color-white: #fff;
+  --color-text: #bfcac8;
+  --default-padding: 10px;
+  --animation-time: 0.5s;
+  --default-fontsize-14: 1.4rem;
+  --default-fontsize-18: 1.8rem;
+  --default-fontsize-26: 2.6rem;
+  --container-width: 140rem;
+  --gutter: 2rem;
+}
+
+/* CSS Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+a {
+  color: inherit;
+  display: inline-block;
+}
+
+button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  border: 0;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+  scroll-padding-top: 4rem;
+}
+
+body {
+  font-size: 1.6rem;
+  font-family: "Rubik", sans-serif;
+  line-height: 1.3;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* End CSS Reset */
+/* Global Styles */
+.container {
+  display: grid;
+  max-width: calc(var(--container-width) + calc(var(--gutter) * 2));
+  padding: calc(var(--gutter) * 3) calc(var(--gutter) * 5) 0;
+  margin: 0 auto;
+  background-color: var(--background-color-dark);
+  position: relative;
+  z-index: 1;
+
+  @media screen and (max-width: 1000px) {
+    padding: calc(var(--gutter) * 3) calc(var(--gutter) * 2) 0;
+  }
+  @media screen and (max-width: 800px) {
+    padding: calc(var(--gutter) * 3) 0 0;
+  }
+
+  &::before {
+    content: ""; /* ✅ */
+    position: absolute; /* ✅ */
+    z-index: 0; /* ✅ */
+    height: 33rem; /* ✅ */
+    width: 100%; /* ✅ */
+    border-bottom: 0.1rem solid var(--color-input-border); /* ✅ */
+    background-image: url(../images/banner.png);
+    top: 150px;
+  }
+}
+
+.h3__heading {
+  font-size: var(--default-fontsize-14);
+  color: var(--color-text);
+  font-weight: 300;
+}
+
+.search {
+  width: 100%;
+  border-radius: calc(var(--default-padding) * 5);
+  padding: calc(var(--default-padding) * 2);
+  border: none;
+  background-color: var(--background-color-dark);
+  color: var(--color-white);
+
+  &:focus {
+    border: none;
+    outline: none;
+  }
+  ::placeholder {
+    color: var(--color-text);
+  }
+}
+
+.button {
+  padding: calc(var(--default-padding) * 1.5) calc(var(--default-padding) * 4);
+  color: var(--color-white);
+  background-color: var(--color-blue-light);
+  border-radius: calc(var(--default-padding) * 3);
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  margin: 0.5rem;
+}
+/* End Global Styles */
+/* Header */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--background-color-dark);
+  padding-bottom: calc(var(--gutter) * 3);
+
+  & .logo {
+    display: flex;
+    align-items: center;
+    gap: var(--default-padding);
+
+    &__heading {
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--color-white);
+    }
+
+    &__span {
+      font-size: 1rem;
+      font-weight: 300;
+      color: var(--color-text);
+    }
+  }
+
+  & .links {
+    display: flex;
+    gap: calc(var(--default-padding) * 3);
+
+    & .link {
+      color: var(--color-white);
+      border: 0.2rem solid transparent;
+      border-radius: calc(var(--default-padding) * 2);
+
+      padding: calc(var(--default-padding) * 0.5)
+        calc(var(--default-padding) * 1.5);
+      transition: color var(--animation-time),
+        border calc(var(--animation-time) / 8);
+
+      &:hover {
+        border-color: var(--color-blue-light);
+        color: var(--color-blue);
+      }
+    }
+  }
+}
+/*End Header  */
+/* Weather */
+.weather {
+  position: relative;
+
+  & .input {
+    position: relative;
+    margin: calc(var(--default-padding) * 6) 0;
+  }
+
+  &__forecast {
+    display: flex;
+    border-radius: var(--default-padding);
+    overflow: hidden;
+    margin-bottom: calc(var(--default-padding) * 6);
+    align-items: stretch;
+
+    @media screen and (max-width: 1150px) {
+      flex-direction: column;
+    }
+    /* landscape phone */
+    @media screen and (max-width: 767px) and (min-width: 501px) {
+      .product {
+        width: 50%;
+      }
+    }
+    /* Tablet */
+    @media screen and (max-width: 500px) {
+      .product {
+        width: 100%;
+      }
+    }
+
+    & .day {
+      flex: 1;
+    }
+  }
+  // &::before {
+  //   content: ""; /* ✅ */
+  //   position: absolute; /* ✅ */
+  //   z-index: -1; /* ✅ */
+  //   height: 100%; /* ✅ */
+  //   width: 100vw; /* ✅ */
+  //   border-bottom: 0.1rem solid var(--color-input-border); /* ✅ */
+  //   background-image: url(../images/banner.png);
+  //   top: 0;
+  //   opacity: 0.6;
+  // }
+}
+
+.today,
+.aftertomorrow {
+  & .day__header {
+    background-color: #2d303d;
+  }
+
+  & .day__content {
+    background-color: #323544;
+  }
+}
+
+.today {
+  flex: 1;
+
+  & .day__header {
+    justify-content: space-between;
+  }
+
+  & .day__content {
+    padding: calc(var(--default-padding) * 2.5)
+      calc(var(--default-padding) * 1.5);
+
+    & .weather__location {
+      font-size: var(--default-fontsize-18);
+      color: var(--color-text);
+      font-weight: 400;
+    }
+
+    & .temperature {
+      display: flex;
+      align-items: center;
+      margin: calc(var(--default-padding) * 2) 0;
+      justify-content: space-between;
+
+      @media screen and (max-width: 1150px) {
+        justify-content: flex-start;
+        gap: calc(var(--default-padding) * 3);
+      }
+      &__content {
+        font-size: 8.2rem;
+        color: var(--color-white);
+        font-weight: bold;
+      }
+    }
+
+    & .status {
+      display: flex;
+      gap: calc(var(--default-padding) * 2.5);
+
+      &__content {
+        display: flex;
+        gap: var(--default-padding);
+      }
+    }
+  }
+}
+
+.tomorrow,
+.aftertomorrow {
+  & .day__header {
+    justify-content: center;
+  }
+
+  & .day__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: calc(var(--default-padding) * 1.5);
+    height: 89%;
+
+    & .temperatures {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.6rem;
+
+      & .max-temperature {
+        font-size: var(--default-fontsize-26);
+        color: var(--color-white);
+        font-weight: bold;
+      }
+    }
+  }
+}
+
+.tomorrow {
+  z-index: 5;
+  & .day__content {
+    background-color: #262936;
+  }
+}
+
+.expectations {
+  color: var(--color-blue-light);
+  font-weight: 300;
+  margin-bottom: calc(var(--default-padding) * 2);
+}
+
+.day__header {
+  display: flex;
+  align-items: center;
+  padding: var(--default-padding);
+  background-color: #222530;
+}
+/* End Weather */
+/* Social */
+.social {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding-top: calc(var(--default-padding) * 5);
+  padding-bottom: calc(var(--default-padding) * 7);
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 100vw;
+    background-color: var(--background-color-light);
+    z-index: -1;
+  }
+
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-bottom: calc(var(--default-padding) * 4);
+    @media screen and (max-width: 900px) {
+      flex-direction: column;
+      align-items: center;
+      gap: calc(var(--default-padding) * 3);
+    }
+  }
+
+  &__message {
+    position: relative;
+    width: 65%;
+  }
+
+  &__icons {
+    display: flex;
+    gap: var(--default-padding);
+  }
+
+  &__icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: calc(var(--default-padding) * 4);
+    height: calc(var(--default-padding) * 4);
+    font-size: var(--default-fontsize-18);
+    color: var(--color-blue-light);
+    background-color: var(--background-color-dark);
+    border-radius: 50%;
+    transition: all var(--animation-time);
+
+    &:hover {
+      background-color: var(--color-blue-light);
+      color: var(--color-white);
+    }
+  }
+
+  &__button {
+    padding: 1.5rem 2rem;
+  }
+
+  & .footer {
+    color: var(--color-text);
+  }
+}
+/* End Social */
